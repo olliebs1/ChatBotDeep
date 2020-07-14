@@ -32,3 +32,8 @@ words = [stemmer.stem(w.lower()) for w in words]
 words = sorted(list(set(words)))
 
 labels = sorted(labels)
+
+training = []
+output= []
+
+out_empty = [0 for _ in range(len(classes))]
