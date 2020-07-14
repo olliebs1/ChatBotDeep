@@ -30,3 +30,5 @@ for intent in data['intents']:
 
 words = [stemmer.stem(w.lower()) for w in words]
 words = sorted(list(set(words)))
+
+labels = sorted(labels)
