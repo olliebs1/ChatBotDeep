@@ -26,3 +26,7 @@ for intent in data['intents']:
         
     if intent['tag'] not in labels:
         labels.append(intent['tag'])
+
+
+words = [stemmer.stem(w.lower()) for w in words]
+words = sorted(list(set(words)))
