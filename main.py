@@ -55,5 +55,5 @@ for x, doc in enumerate(docs_x):
     training.append(bag)
     output.append(output_row)
 
-training = numpu.array(training)
-output = np.array(output)
+training = numpy.array(training)
+output = numpy.array(output)
