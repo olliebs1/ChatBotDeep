@@ -28,7 +28,7 @@ for intent in data['intents']:
         labels.append(intent['tag'])
 
 
-words = [stemmer.stem(w.lower()) for w in words]
+words = [stemmer.stem(w.lower()) for w in words if w not in "?"]
 words = sorted(list(set(words)))
 
 labels = sorted(labels)
@@ -36,7 +36,7 @@ labels = sorted(labels)
 training = []
 output= []
 
-out_empty = [0 for _ in range(len(classes))]
+out_empty = [0 for _ in range(len(labels))]
 
 for x, doc in enumerate(docs_x):
     bag = []
@@ -56,4 +56,4 @@ for x, doc in enumerate(docs_x):
     output.append(output_row)
 
 training = numpy.array(training)
-output = numpy.array(output)
+output = numpy.array(output) 
