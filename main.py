@@ -95,3 +95,11 @@ def bag_of_words(s, words):
             
 
     return numpy.array(bag)
+
+
+def chat():
+    print("Start talking with the bot! (Type quit to stop)")
+    while True:
+        inp = input("You: ")
+        if inp.lower() == "quit":
+            break
