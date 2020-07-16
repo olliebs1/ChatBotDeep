@@ -103,3 +103,8 @@ def chat():
         inp = input("You: ")
         if inp.lower() == "quit":
             break
+
+        results = model.predict([bag_of_words(inp, words)])
+        print(results)
+
+chat()
