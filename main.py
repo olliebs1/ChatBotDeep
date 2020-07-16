@@ -91,7 +91,7 @@ def bag_of_words(s, words):
     for sentence in s_words:
         for i, w in enumerate(words):
             if w == sentence:
-                bag[i].append(1)
+                bag[i] = 1
             
 
     return numpy.array(bag)
@@ -105,6 +105,6 @@ def chat():
             break
 
         results = model.predict([bag_of_words(inp, words)])
-        print(results)
-
+        results_index = numpy.argmax(results)
+       
 chat()
