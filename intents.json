@@ -4,13 +4,21 @@
      "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
      "context_set": ""
     },
+    {"tag": "time",
+        "patterns": ["What time is it?", "time", "how late is it?", "Whats the time?"],
+        "responses": ["The current time is: "]
+    },
+    {"tag": "mood",
+        "patterns": ["How are you today?", "You ok?", "How are you?", "How are you feeling?", "Everything alright?"],
+        "responses": ["The current time is: "]
+    },
     {"tag": "goodbye",
      "patterns": ["Bye", "See you later", "Goodbye"],
      "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."]
     },
     {"tag": "thanks",
      "patterns": ["Thanks", "Thank you", "That's helpful"],
-     "responses": ["Happy to help!", "Any time!", "My pleasure"]
+     "responses": ["Happy to help!", "You're Welcome!", "My pleasure"]
     },
     {"tag": "hours",
      "patterns": ["What hours are you open?", "What are your hours?", "When are you open?" ],
@@ -27,10 +35,6 @@
     {"tag": "weather",
         "patterns": ["Whats the weather like today?"],
         "responses": ["It's cloudy today", "It's sunny today", "It's raining today but clears up later", "It's snowing today"]
-       },
-       {"tag": "time",
-        "patterns": ["What time is it?"],
-        "responses": ["We're open every day from 9am-9pm", "Our hours are 9am-9pm every day"]
-       }
+    }
 ]
 }

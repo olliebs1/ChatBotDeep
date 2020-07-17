@@ -8,6 +8,7 @@ import tensorflow
 import random
 import json
 import pickle
+import datetime
 
 with open('intents.json') as file:
     data = json.load(file)
@@ -78,7 +79,7 @@ model = tflearn.DNN(net)
 try:
     model.load("model.tflearn")
 except:
-    model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+    model.fit(training, output, n_epoch=3000, batch_size=8, show_metric=True)
     model.save('model.tflearn')
 
 
@@ -98,6 +99,7 @@ def bag_of_words(s, words):
 
 
 def chat():
+    currentDT = datetime.datetime.now()
     print("Start talking with the bot! (Type quit to stop)")
     while True:
         inp = input("You: ")
@@ -107,16 +109,20 @@ def chat():
         results = model.predict([bag_of_words(inp, words)])[0]
         results_index = numpy.argmax(results)
         tag = labels[results_index]
-
-        if results[results_index] > 0.8:
+        
+        if tag == 'time':
+            for tg in data["intents"]:
+                if tg['tag'] == tag:
+                    responses = tg['responses']
+            print("Bot: " + random.choice(responses) + str(currentDT.hour) + ':' + str(currentDT.minute) )
+        elif results[results_index] > 0.8:
             for tg in data["intents"]:
                 if tg['tag'] == tag:
                     responses = tg['responses']
 
-            print(random.choice(responses))
+            print("Bot: " + random.choice(responses))
         else:
             print("I didnt quite get that, please try again.")
 
 
-       
 chat()
