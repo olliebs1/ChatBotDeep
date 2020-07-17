@@ -27,6 +27,10 @@
     {"tag": "weather",
         "patterns": ["Whats the weather like today?"],
         "responses": ["It's cloudy today", "It's sunny today", "It's raining today but clears up later", "It's snowing today"]
+       },
+       {"tag": "time",
+        "patterns": ["What time is it?"],
+        "responses": ["We're open every day from 9am-9pm", "Our hours are 9am-9pm every day"]
        }
 ]
 }
