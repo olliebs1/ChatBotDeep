@@ -79,7 +79,7 @@ model = tflearn.DNN(net)
 try:
     model.load("model.tflearn")
 except:
-    model.fit(training, output, n_epoch=3000, batch_size=8, show_metric=True)
+    model.fit(training, output, n_epoch=3500, batch_size=8, show_metric=True)
     model.save('model.tflearn')
 
 
@@ -119,7 +119,6 @@ def chat():
             for tg in data["intents"]:
                 if tg['tag'] == tag:
                     responses = tg['responses']
-
             print("Bot: " + random.choice(responses))
         else:
             print("I didnt quite get that, please try again.")
